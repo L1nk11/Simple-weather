@@ -3,9 +3,10 @@ const body = document.querySelector('body')
 function createSeachbar() {
     const searchContainer = document.createElement('div')
     const searchInput = document.createElement('input')
-    searchContainer.id = 'searchContainer'
+    searchContainer.classList.add('searchContainer')
     searchInput.type = 'text'
     searchInput.placeholder = 'São paulo'
+    searchInput.id = 'search-bar'
 
     searchInput.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
