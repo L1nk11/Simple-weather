@@ -51,7 +51,9 @@ function createInfoDisplay() {
     dataHolder.classList.add('weatherDataHolder')
     bottomDisplay.classList.add('bottomDisplay')
     placeDisplay.classList.add('placeDisplay')
-    
+
+    tempValue.id = 'temp-display'
+    tempUnit.id = 'temp-unit'
     weatherFeelingText.id = 'weather-feeling-text-value'
     weatherFeelingData.id = 'weather-feeling-data-value'
     weatherHumidityText.id = 'weather-humidity-text-value'
