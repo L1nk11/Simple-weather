@@ -31,7 +31,21 @@ async function processSeach(searchTerm) {
 
 function processData(weatherDataJson) {
     // process the json data
-    console.log(weatherDataJson)
+    const location = weatherDataJson.resolvedAddress
+    const weatherDescription = weatherDataJson.description
+    const currentCondition = weatherDataJson.currentConditions.conditions
+    const currentTemperature = weatherDataJson.currentConditions.temp
+    const currentFeelslike = weatherDataJson.currentConditions.feelslike
+    const currentHumidity = weatherDataJson.currentConditions.humidity
+    
+    const querryResult = []
+    querryResult.push(location)
+    querryResult.push(weatherDescription)
+    querryResult.push(currentCondition)
+    querryResult.push(currentTemperature)
+    querryResult.push(currentFeelslike)
+    querryResult.push(currentHumidity)
+    return querryResult
 }
 
 
