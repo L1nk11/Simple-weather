@@ -1,4 +1,5 @@
 const body = document.querySelector('body')
+let unitType = 'c'
 
 function createSeachbar() {
     const searchContainer = document.createElement('div')
@@ -32,9 +33,7 @@ function createInfoDisplay() {
     const weatherFeeling = document.createElement('div')
     const weatherHumidity = document.createElement('div')
     const weatherFeelingText = document.createElement('p')
-    const weatherFeelingData = document.createElement('p')
     const weatherHumidityText = document.createElement('p')
-    const weatherHumidityData = document.createElement('p')
 
     // bottom display
     const placeDisplay = document.createElement('div')
@@ -54,15 +53,11 @@ function createInfoDisplay() {
     tempValue.id = 'temp-display'
     tempUnit.id = 'temp-unit'
     weatherFeelingText.id = 'weather-feeling-text-value'
-    weatherFeelingData.id = 'weather-feeling-data-value'
     weatherHumidityText.id = 'weather-humidity-text-value'
-    weatherHumidityData.id = 'weather-humidity-data-value'
 
     // append all
     weatherFeeling.appendChild(weatherFeelingText)
-    weatherFeeling.appendChild(weatherFeelingData)
     weatherHumidity.appendChild(weatherHumidityText)
-    weatherHumidity.appendChild(weatherHumidityData)
     tempDisplay.appendChild(tempValue)
     tempDisplay.appendChild(tempUnit)
     weatherData.appendChild(weatherFeeling)
@@ -78,13 +73,26 @@ function createInfoDisplay() {
     body.appendChild(infoDisplay)
 }
 
+// location, weather description, cur condition, 
+// cur temperature, cur feelslike, cur humidity
 function displayData(dataList) {
-    // dataList = weatherStatus, temperature, feeling, humidity
-    
-    console.log('worked')
+    // console.log(dataList)
+    const humidityDisplayText = document.getElementById('weather-humidity-text-value')
+    const feelingDisplayText = document.getElementById('weather-feeling-text-value')
+    const tempDisplay = document.getElementById('temp-display')
+    const tempUnit = document.getElementById('temp-unit')
+    const placeDisplay = document.querySelector('.placeDisplay')
+    const statusDisplay = document.querySelector('.weatherStatus')
+
+    statusDisplay.textContent = `${dataList[2]}. ${dataList[1]}`
+    feelingDisplayText.textContent = `feelslike: ${dataList[4]}°${unitType}`
+    humidityDisplayText.textContent = `current humidity: ${dataList[5]}%`
+    tempDisplay.textContent = `${dataList[3]}`
+    tempUnit.textContent = `°${unitType}`
+    placeDisplay.textContent = dataList[0]
 }
 
-export { displayData }
+export { displayData, unitType }
 
 createSeachbar()
 createInfoDisplay()

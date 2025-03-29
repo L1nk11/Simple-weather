@@ -1,4 +1,4 @@
-import { displayData } from "./ui.js"
+import { displayData, unitType } from "./ui.js"
 
 const form = document.getElementById('searchbar-form')
 const searchbar = document.getElementById('search-bar')
@@ -30,14 +30,24 @@ async function processSeach(searchTerm) {
 }
 
 function processData(weatherDataJson) {
+    // console.log(weatherDataJson)
     // process the json data
     const location = weatherDataJson.resolvedAddress
     const weatherDescription = weatherDataJson.description
     const currentCondition = weatherDataJson.currentConditions.conditions
-    const currentTemperature = weatherDataJson.currentConditions.temp
-    const currentFeelslike = weatherDataJson.currentConditions.feelslike
     const currentHumidity = weatherDataJson.currentConditions.humidity
-    
+    let cTemp = undefined
+    let cFeel = undefined
+    if (unitType === 'c') {
+        cTemp = fahrenheitToCelsius(weatherDataJson.currentConditions.temp)
+        cFeel  = fahrenheitToCelsius(weatherDataJson.currentConditions.feelslike)
+    } else {
+        cTemp = weatherDataJson.currentConditions.temp
+        cFeel = weatherDataJson.currentConditions.feelslike
+    }
+    const currentTemperature = cTemp
+    const currentFeelslike = cFeel
+
     const querryResult = []
     querryResult.push(location)
     querryResult.push(weatherDescription)
@@ -45,8 +55,16 @@ function processData(weatherDataJson) {
     querryResult.push(currentTemperature)
     querryResult.push(currentFeelslike)
     querryResult.push(currentHumidity)
+
     return querryResult
 }
 
+function fahrenheitToCelsius(fahrenheit) {
+    return parseFloat(((fahrenheit - 32) * 5 / 9).toFixed(1))
+}
 
-export { processSeach }
+function changeUnit() {
+    // function to change temperature unit
+}
+
+export { unitType }
