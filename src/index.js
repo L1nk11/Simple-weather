@@ -1,3 +1,4 @@
-import '../src/Components/ui.js'
+import './Components/ui.js'
+import './Components/dataManager.js'
 
-import '../src/global.css'
+import './global.css'

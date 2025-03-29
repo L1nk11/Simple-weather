@@ -19,10 +19,27 @@ body {
 
 .searchContainer input {
     border-radius: 25px;
-    padding: 2px 5px;
+    padding: 5px 10px;
     min-width: 150px;
     width: 15%;
     max-width: 250px;
+}
+
+@media (max-width: 500px) {
+    .searchContainer {
+        padding: 30px 0% 0% 0%;
+    }
+
+    .searchContainer form {
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+    }
+
+    .searchContainer form input {
+        width: 70%;
+        max-width: none;
+    }
 }
 
 /* weather info */

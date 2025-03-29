@@ -2,19 +2,17 @@ const body = document.querySelector('body')
 
 function createSeachbar() {
     const searchContainer = document.createElement('div')
+    const searchForm = document.createElement('form')
     const searchInput = document.createElement('input')
+    searchForm.action = '#'
+    searchForm.id = 'searchbar-form'
     searchContainer.classList.add('searchContainer')
     searchInput.type = 'text'
     searchInput.placeholder = 'São paulo'
     searchInput.id = 'search-bar'
 
-    searchInput.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter') {
-            console.log('call search function ', searchInput.value)
-        }
-    })
-
-    searchContainer.appendChild(searchInput)
+    searchForm.appendChild(searchInput)
+    searchContainer.appendChild(searchForm)
     body.appendChild(searchContainer)
 }
 
@@ -79,6 +77,14 @@ function createInfoDisplay() {
     infoDisplay.appendChild(bottomDisplay)
     body.appendChild(infoDisplay)
 }
+
+function displayData(dataList) {
+    // dataList = weatherStatus, temperature, feeling, humidity
+    
+    console.log('worked')
+}
+
+export { displayData }
 
 createSeachbar()
 createInfoDisplay()
