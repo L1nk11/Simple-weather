@@ -70,6 +70,7 @@ form input {
 
 .topDisplay .weatherDataHolder {
     display: flex;
+    margin: 10px 0px;
 }
 
 .tempDisplay {
