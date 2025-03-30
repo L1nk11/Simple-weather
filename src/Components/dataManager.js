@@ -68,3 +68,5 @@ function changeUnit() {
 }
 
 export { unitType }
+
+processSeach('São paulo')

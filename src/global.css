@@ -7,6 +7,8 @@
 body {
     height: 100vh;
     width: 100vw;
+    background-color: #e4e5f1;
+    color: #484b6a;
 }
 
 /* search bar */
@@ -28,6 +30,7 @@ form input {
     padding: 5px 10px;
     width: 100%;
     transition: 0.3s ease;
+    background-color: #e4e5f1;
 }
 
 @media (max-width: 500px) {
@@ -53,3 +56,43 @@ form input {
 
 /* weather info */
 
+.infoDisplay {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 100px 0px;
+    background-color: #d2d3db;
+}
+
+.topDisplay .weatherStatus {
+    font-size: 1.2rem;
+}
+
+.topDisplay .weatherDataHolder {
+    display: flex;
+}
+
+.tempDisplay {
+    display: flex;
+    font-weight: bolder;
+}
+
+.tempDisplay #temp-display {
+    font-size: 5rem;
+}
+
+.tempDisplay #temp-unit  {
+    font-size: 2rem;
+}
+
+.weatherDataHolder .weatherData {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 10px;
+    font-size: 1.2rem;
+}
+
+.bottomDisplay {
+    font-size: 1.2rem;
+}

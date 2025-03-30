@@ -73,8 +73,6 @@ function createInfoDisplay() {
     body.appendChild(infoDisplay)
 }
 
-// location, weather description, cur condition, 
-// cur temperature, cur feelslike, cur humidity
 function displayData(dataList) {
     // console.log(dataList)
     const humidityDisplayText = document.getElementById('weather-humidity-text-value')
